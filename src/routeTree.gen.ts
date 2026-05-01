@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VideosRouteImport } from './routes/videos'
+import { Route as MusicRouteImport } from './routes/music'
+import { Route as ConnectRouteImport } from './routes/connect'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MusicRoute = MusicRouteImport.update({
+  id: '/music',
+  path: '/music',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectRoute = ConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,72 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/connect': typeof ConnectRoute
+  '/music': typeof MusicRoute
+  '/videos': typeof VideosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/connect': typeof ConnectRoute
+  '/music': typeof MusicRoute
+  '/videos': typeof VideosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/connect': typeof ConnectRoute
+  '/music': typeof MusicRoute
+  '/videos': typeof VideosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/about' | '/connect' | '/music' | '/videos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/about' | '/connect' | '/music' | '/videos'
+  id: '__root__' | '/' | '/about' | '/connect' | '/music' | '/videos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ConnectRoute: typeof ConnectRoute
+  MusicRoute: typeof MusicRoute
+  VideosRoute: typeof VideosRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/music': {
+      id: '/music'
+      path: '/music'
+      fullPath: '/music'
+      preLoaderRoute: typeof MusicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connect': {
+      id: '/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +121,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ConnectRoute: ConnectRoute,
+  MusicRoute: MusicRoute,
+  VideosRoute: VideosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
