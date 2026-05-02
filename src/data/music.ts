@@ -36,7 +36,7 @@ export const releases: Release[] = [
     links: {
       spotify: "https://open.spotify.com/track/1KYoio6k80W5pfcnlXdAOz?si=433dee23a0bd4a62",
       appleMusic: "https://music.apple.com/gh/album/rescue-me-feat-lily-bruce-appiah/1849203474?i=1849203475",
-      youtube: "https://youtube.com/",
+      youtube: "https://youtu.be/b-vSiwmfaoY?si=nEat6plJ253KoIZI",
     },
     embed: { type: "spotify", src: "https://open.spotify.com/embed/track/1KYoio6k80W5pfcnlXdAOz?utm_source=generator&theme=0" },
     featured: true,
