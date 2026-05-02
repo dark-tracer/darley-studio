@@ -26,9 +26,10 @@ const schema = z.object({
 function ConnectPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "Booking", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     const result = schema.safeParse(form);
     if (!result.success) {
@@ -41,10 +42,24 @@ function ConnectPage() {
       return;
     }
     setErrors({});
-    // Build a mailto fallback so the message reaches her without a backend.
-    const body = encodeURIComponent(`From: ${result.data.name} <${result.data.email}>\nSubject: ${result.data.subject}\n\n${result.data.message}`);
-    window.location.href = `mailto:darleynarh@gmail.com?subject=${encodeURIComponent("[" + result.data.subject + "] " + result.data.name)}&body=${body}`;
-    setSent(true);
+    setStatus("sending");
+    setErrorMessage("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || "Failed to send message");
+      }
+      setStatus("sent");
+      setForm({ name: "", email: "", subject: "Booking", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(err instanceof Error ? err.message : "Something went wrong");
+    }
   }
 
   return (
