@@ -51,12 +51,12 @@ export const releases: Release[] = [
     story:
       "Away is sung partly in Twi and Ewe because some things only land in the language they were born in. It is about the moment you finally name the imbalance — that you have been the one carrying, forgiving, returning — and decide that leaving is not betrayal. It is breath.",
     links: {
-      spotify: "https://open.spotify.com/",
-      appleMusic: "https://music.apple.com/",
-      youtube: "https://youtube.com/",
-      audiomack: "https://audiomack.com/",
+      spotify: "https://open.spotify.com/track/5fY7TJ9eW00QPR0L0lIjyq?si=f813fe910c1a4b08",
+      appleMusic: "https://music.apple.com/gh/album/away/1807441447?i=1807441449",
+      youtube: "https://youtu.be/Oj2Nqpdl1WM?si=CHKUoGBFp-fL-KbH",
+      audiomack: "https://audiomack.com/darleymusik/song/away?share-user-id=22535805",
     },
-    embed: { type: "spotify", src: "https://open.spotify.com/embed/track/0VjIjW4GlUZAMYd2vXMi3b?utm_source=generator&theme=0" },
+    embed: { type: "spotify", src: "https://open.spotify.com/embed/track/5fY7TJ9eW00QPR0L0lIjyq?utm_source=generator&theme=0" },
     featured: true,
   },
 ];
