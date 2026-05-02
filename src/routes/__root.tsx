@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
+import { LoadingScreen } from "../components/LoadingScreen";
 
 import appCss from "../styles.css?url";
 
@@ -80,6 +81,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <>
+      <LoadingScreen />
       <Nav />
       <main className="min-h-screen pt-0">
         <Outlet />
