@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VideosRouteImport } from './routes/videos'
+import { Route as PressKitRouteImport } from './routes/press-kit'
 import { Route as MusicRouteImport } from './routes/music'
 import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as AboutRouteImport } from './routes/about'
@@ -18,6 +19,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const VideosRoute = VideosRouteImport.update({
   id: '/videos',
   path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PressKitRoute = PressKitRouteImport.update({
+  id: '/press-kit',
+  path: '/press-kit',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MusicRoute = MusicRouteImport.update({
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/connect': typeof ConnectRoute
   '/music': typeof MusicRoute
+  '/press-kit': typeof PressKitRoute
   '/videos': typeof VideosRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/connect': typeof ConnectRoute
   '/music': typeof MusicRoute
+  '/press-kit': typeof PressKitRoute
   '/videos': typeof VideosRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,22 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/connect': typeof ConnectRoute
   '/music': typeof MusicRoute
+  '/press-kit': typeof PressKitRoute
   '/videos': typeof VideosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/connect' | '/music' | '/videos'
+  fullPaths: '/' | '/about' | '/connect' | '/music' | '/press-kit' | '/videos'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/connect' | '/music' | '/videos'
-  id: '__root__' | '/' | '/about' | '/connect' | '/music' | '/videos'
+  to: '/' | '/about' | '/connect' | '/music' | '/press-kit' | '/videos'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/connect'
+    | '/music'
+    | '/press-kit'
+    | '/videos'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +92,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ConnectRoute: typeof ConnectRoute
   MusicRoute: typeof MusicRoute
+  PressKitRoute: typeof PressKitRoute
   VideosRoute: typeof VideosRoute
 }
 
@@ -86,6 +103,13 @@ declare module '@tanstack/react-router' {
       path: '/videos'
       fullPath: '/videos'
       preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/press-kit': {
+      id: '/press-kit'
+      path: '/press-kit'
+      fullPath: '/press-kit'
+      preLoaderRoute: typeof PressKitRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/music': {
@@ -124,6 +148,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ConnectRoute: ConnectRoute,
   MusicRoute: MusicRoute,
+  PressKitRoute: PressKitRoute,
   VideosRoute: VideosRoute,
 }
 export const routeTree = rootRouteImport
