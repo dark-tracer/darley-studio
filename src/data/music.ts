@@ -32,7 +32,7 @@ export const releases: Release[] = [
     story:
       "Rescue Me lives in the space between drowning and being pulled out of the water. I wrote it on a night when I had nothing left to perform — no version of myself I could put together. The visual identity — the chains, the shadows, the shaft of gold — is exactly how it felt: heavy on every side, then suddenly, quietly, held.",
     lyricsExcerpt:
-      "I am tired of the running / save a place for me in the light / hold my name 'til I remember it / rescue me, rescue me tonight.",
+      "No one knows the battle i fight \neveryday  \n| No one knows \nlittle by little I'm going insane |\nPretending I'm ok now in the four walls of my body |\nYou see me smile \nBut if only you knew ",
     links: {
       spotify: "https://open.spotify.com/track/1KYoio6k80W5pfcnlXdAOz?si=433dee23a0bd4a62",
       appleMusic: "https://music.apple.com/gh/album/rescue-me-feat-lily-bruce-appiah/1849203474?i=1849203475",
