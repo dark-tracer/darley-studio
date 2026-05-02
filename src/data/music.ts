@@ -34,11 +34,11 @@ export const releases: Release[] = [
     lyricsExcerpt:
       "I am tired of the running / save a place for me in the light / hold my name 'til I remember it / rescue me, rescue me tonight.",
     links: {
-      spotify: "https://open.spotify.com/",
-      appleMusic: "https://music.apple.com/",
+      spotify: "https://open.spotify.com/track/1KYoio6k80W5pfcnlXdAOz?si=433dee23a0bd4a62",
+      appleMusic: "https://music.apple.com/gh/album/rescue-me-feat-lily-bruce-appiah/1849203474?i=1849203475",
       youtube: "https://youtube.com/",
     },
-    embed: { type: "spotify", src: "https://open.spotify.com/embed/track/4cOdK2wGLETKBW3PvgPWqT?utm_source=generator&theme=0" },
+    embed: { type: "spotify", src: "https://open.spotify.com/embed/track/1KYoio6k80W5pfcnlXdAOz?utm_source=generator&theme=0" },
     featured: true,
   },
   {
