@@ -22,7 +22,7 @@ export const musicVideos: VideoItem[] = [
     title: "Rescue Me — Official Visual",
     date: "Nov 2024",
     description: "Light, shadow, chains, and the slow return to the body.",
-    youtubeId: "dQw4w9WgXcQ",
+    youtubeId: "b-vSiwmfaoY",
     category: "music-video",
   },
   {
