@@ -61,14 +61,9 @@ function AboutPage() {
 
           <div className="pt-6 flex flex-wrap gap-3">
             <a
-              href="#"
+              href="/Isabella_Narh_CV.pdf"
+              download
               className="inline-flex items-center gap-2 rounded-sm bg-[color:var(--color-ember)] px-5 py-3 text-xs uppercase tracking-[0.25em] text-[color:var(--color-ember-foreground)] hover:opacity-90 transition"
-            >
-              <Download size={16} /> Press kit
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 rounded-sm border border-foreground/30 px-5 py-3 text-xs uppercase tracking-[0.25em] text-foreground hover:border-[color:var(--color-ember)] hover:text-[color:var(--color-ember)] transition"
             >
               <Download size={16} /> Download CV
             </a>
