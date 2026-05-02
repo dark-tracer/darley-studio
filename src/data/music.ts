@@ -1,6 +1,7 @@
 // Single source of truth for releases — easy to extend.
 import rescueArt from "@/assets/rescue-me.jpg";
 import awayArt from "@/assets/away.jpg";
+import justDoItArt from "@/assets/just-do-it.jpg";
 
 export type Release = {
   slug: string;
@@ -58,5 +59,22 @@ export const releases: Release[] = [
     },
     embed: { type: "spotify", src: "https://open.spotify.com/embed/track/5fY7TJ9eW00QPR0L0lIjyq?utm_source=generator&theme=0" },
     featured: true,
+  },
+  {
+    slug: "just-do-it",
+    title: "Just Do It",
+    releaseDate: "2020-03-13",
+    cover: justDoItArt,
+    shortDescription:
+      "A collaboration with Six Strings — a nudge to stop overthinking and move. The song is the push.",
+    story:
+      "Just Do It came out of a season of hesitation — the kind where you keep waiting for the perfect moment that never arrives. Built with Six Strings, it leans into warm guitar work and a steady, encouraging pulse. It is the voice in your head on a good day, finally winning.",
+    links: {
+      spotify: "https://open.spotify.com/track/4REcZZJz0LOmbqGJ901rp9?si=3fff34e1c0744b19",
+      appleMusic: "https://music.apple.com/gh/album/just-do-it/1503231576?i=1503231579",
+      audiomack: "https://music.apple.com/gh/album/just-do-it/1503231576?i=1503231579",
+      youtube: "https://youtu.be/okelPyuuSVE?si=cthLaVTW9noRD2G3",
+    },
+    embed: { type: "spotify", src: "https://open.spotify.com/embed/track/4REcZZJz0LOmbqGJ901rp9?utm_source=generator&theme=0" },
   },
 ];
