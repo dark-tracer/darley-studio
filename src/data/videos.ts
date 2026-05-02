@@ -35,11 +35,11 @@ export const musicVideos: VideoItem[] = [
   },
   {
     id: "mv3",
-    title: "Live at the Loft — Acoustic Set",
-    date: "Mar 2024",
-    description: "A stripped-down evening: voice, guitar, and a small room.",
-    youtubeId: "jfKfPfyJRdk",
-    category: "live",
+    title: "Darley & Six Strings — Just Do It (Official Video)",
+    date: "2024",
+    description: "A collaboration with Six Strings — official video.",
+    youtubeId: "okelPyuuSVE",
+    category: "music-video",
   },
   {
     id: "mv4",
