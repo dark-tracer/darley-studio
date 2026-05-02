@@ -26,9 +26,10 @@ const schema = z.object({
 function ConnectPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: "Booking", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
-  function onSubmit(e: React.FormEvent) {
+  async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     const result = schema.safeParse(form);
     if (!result.success) {
@@ -41,10 +42,24 @@ function ConnectPage() {
       return;
     }
     setErrors({});
-    // Build a mailto fallback so the message reaches her without a backend.
-    const body = encodeURIComponent(`From: ${result.data.name} <${result.data.email}>\nSubject: ${result.data.subject}\n\n${result.data.message}`);
-    window.location.href = `mailto:darleynarh@gmail.com?subject=${encodeURIComponent("[" + result.data.subject + "] " + result.data.name)}&body=${body}`;
-    setSent(true);
+    setStatus("sending");
+    setErrorMessage("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || "Failed to send message");
+      }
+      setStatus("sent");
+      setForm({ name: "", email: "", subject: "Booking", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(err instanceof Error ? err.message : "Something went wrong");
+    }
   }
 
   return (
@@ -99,13 +114,19 @@ function ConnectPage() {
           </Field>
           <button
             type="submit"
-            className="w-full rounded-sm bg-[color:var(--color-ember)] px-6 py-4 text-xs uppercase tracking-[0.25em] text-[color:var(--color-ember-foreground)] hover:opacity-90 transition ember-glow"
+            disabled={status === "sending"}
+            className="w-full rounded-sm bg-[color:var(--color-ember)] px-6 py-4 text-xs uppercase tracking-[0.25em] text-[color:var(--color-ember-foreground)] hover:opacity-90 transition ember-glow disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Send message
+            {status === "sending" ? "Sending…" : "Send message"}
           </button>
-          {sent && (
+          {status === "sent" && (
             <p className="text-sm text-[color:var(--color-ember)]">
-              Your email client should be opening. If not, write to darleynarh@gmail.com directly.
+              Thank you — your message has been sent. Darley will be in touch shortly.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-sm text-destructive">
+              {errorMessage || "Could not send your message. Please try again, or email darleynarh@gmail.com directly."}
             </p>
           )}
         </form>

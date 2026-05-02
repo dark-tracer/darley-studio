@@ -15,6 +15,7 @@ import { Route as MusicRouteImport } from './routes/music'
 import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
 
 const VideosRoute = VideosRouteImport.update({
   id: '/videos',
@@ -46,6 +47,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/music': typeof MusicRoute
   '/press-kit': typeof PressKitRoute
   '/videos': typeof VideosRoute
+  '/api/contact': typeof ApiContactRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/music': typeof MusicRoute
   '/press-kit': typeof PressKitRoute
   '/videos': typeof VideosRoute
+  '/api/contact': typeof ApiContactRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,12 +79,27 @@ export interface FileRoutesById {
   '/music': typeof MusicRoute
   '/press-kit': typeof PressKitRoute
   '/videos': typeof VideosRoute
+  '/api/contact': typeof ApiContactRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/connect' | '/music' | '/press-kit' | '/videos'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/connect'
+    | '/music'
+    | '/press-kit'
+    | '/videos'
+    | '/api/contact'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/connect' | '/music' | '/press-kit' | '/videos'
+  to:
+    | '/'
+    | '/about'
+    | '/connect'
+    | '/music'
+    | '/press-kit'
+    | '/videos'
+    | '/api/contact'
   id:
     | '__root__'
     | '/'
@@ -85,6 +108,7 @@ export interface FileRouteTypes {
     | '/music'
     | '/press-kit'
     | '/videos'
+    | '/api/contact'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -94,6 +118,7 @@ export interface RootRouteChildren {
   MusicRoute: typeof MusicRoute
   PressKitRoute: typeof PressKitRoute
   VideosRoute: typeof VideosRoute
+  ApiContactRoute: typeof ApiContactRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -140,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -150,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   MusicRoute: MusicRoute,
   PressKitRoute: PressKitRoute,
   VideosRoute: VideosRoute,
+  ApiContactRoute: ApiContactRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
