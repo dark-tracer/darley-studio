@@ -43,11 +43,11 @@ export const musicVideos: VideoItem[] = [
   },
   {
     id: "mv4",
-    title: "Behind 'Rescue Me'",
-    date: "Oct 2024",
-    description: "Studio sessions, vocal takes, and the night the song became itself.",
-    youtubeId: "9bZkp7q19f0",
-    category: "bts",
+    title: "Yawa (Tekno) — Cover by Darley & First Inversion",
+    date: "2024",
+    description: "A reimagined cover with First Inversion.",
+    youtubeId: "yURf8oeYwHs",
+    category: "music-video",
   },
 ];
 
