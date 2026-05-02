@@ -22,12 +22,12 @@ export function Footer() {
         <div>
           <p className="text-xs uppercase tracking-[0.28em] text-[color:var(--color-ember)]">Find me</p>
           <div className="mt-4 flex gap-4">
-            <a href="mailto:hello@darley.music" aria-label="Email" className="text-foreground/70 hover:text-[color:var(--color-ember)] transition-colors"><Mail size={20} /></a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" className="text-foreground/70 hover:text-[color:var(--color-ember)] transition-colors"><Instagram size={20} /></a>
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube" className="text-foreground/70 hover:text-[color:var(--color-ember)] transition-colors"><Youtube size={20} /></a>
-            <a href="https://open.spotify.com" target="_blank" rel="noreferrer" aria-label="Spotify" className="text-foreground/70 hover:text-[color:var(--color-ember)] transition-colors"><Music2 size={20} /></a>
+            <a href="mailto:darleynarh@gmail.com" aria-label="Email" className="text-foreground/70 hover:text-[color:var(--color-ember)] transition-colors"><Mail size={20} /></a>
+            <a href="https://www.instagram.com/darley_musik" target="_blank" rel="noreferrer" aria-label="Instagram" className="text-foreground/70 hover:text-[color:var(--color-ember)] transition-colors"><Instagram size={20} /></a>
+            <a href="https://youtube.com/@darleymusik" target="_blank" rel="noreferrer" aria-label="YouTube" className="text-foreground/70 hover:text-[color:var(--color-ember)] transition-colors"><Youtube size={20} /></a>
+            <a href="https://open.spotify.com/artist/2dy1sWEQieJNbkj43DCT6x" target="_blank" rel="noreferrer" aria-label="Spotify" className="text-foreground/70 hover:text-[color:var(--color-ember)] transition-colors"><Music2 size={20} /></a>
           </div>
-          <p className="mt-6 text-xs text-muted-foreground">hello@darley.music</p>
+          <p className="mt-6 text-xs text-muted-foreground">darleynarh@gmail.com</p>
         </div>
       </div>
       <div className="border-t border-border/40">

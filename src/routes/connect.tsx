@@ -43,7 +43,7 @@ function ConnectPage() {
     setErrors({});
     // Build a mailto fallback so the message reaches her without a backend.
     const body = encodeURIComponent(`From: ${result.data.name} <${result.data.email}>\nSubject: ${result.data.subject}\n\n${result.data.message}`);
-    window.location.href = `mailto:hello@darley.music?subject=${encodeURIComponent("[" + result.data.subject + "] " + result.data.name)}&body=${body}`;
+    window.location.href = `mailto:darleynarh@gmail.com?subject=${encodeURIComponent("[" + result.data.subject + "] " + result.data.name)}&body=${body}`;
     setSent(true);
   }
 
@@ -105,7 +105,7 @@ function ConnectPage() {
           </button>
           {sent && (
             <p className="text-sm text-[color:var(--color-ember)]">
-              Your email client should be opening. If not, write to hello@darley.music directly.
+              Your email client should be opening. If not, write to darleynarh@gmail.com directly.
             </p>
           )}
         </form>
@@ -114,19 +114,20 @@ function ConnectPage() {
           <div>
             <p className="eyebrow">Direct</p>
             <a
-              href="mailto:hello@darley.music"
+              href="mailto:darleynarh@gmail.com"
               className="mt-4 inline-flex items-center gap-3 font-display text-2xl text-foreground hover:text-[color:var(--color-ember)] transition"
             >
-              <Mail size={20} /> hello@darley.music
+              <Mail size={20} /> darleynarh@gmail.com
             </a>
           </div>
 
           <div>
             <p className="eyebrow">Follow</p>
             <div className="mt-4 flex flex-col gap-3 text-sm">
-              <Social href="https://instagram.com" Icon={Instagram} label="Instagram" handle="@darleymusic" />
-              <Social href="https://youtube.com" Icon={Youtube} label="YouTube" handle="Darley" />
-              <Social href="https://open.spotify.com" Icon={Music2} label="Spotify" handle="Darley" />
+              <Social href="https://www.instagram.com/darley_musik" Icon={Instagram} label="Instagram" handle="@darley_musik" />
+              <Social href="https://youtube.com/@darleymusik" Icon={Youtube} label="YouTube" handle="@darleymusik" />
+              <Social href="https://open.spotify.com/artist/2dy1sWEQieJNbkj43DCT6x" Icon={Music2} label="Spotify" handle="Darley" />
+              <Social href="https://music.apple.com/gh/artist/darley/1811108221" Icon={Music2} label="Apple Music" handle="Darley" />
             </div>
           </div>
 
