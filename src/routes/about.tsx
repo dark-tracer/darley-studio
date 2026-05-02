@@ -68,6 +68,12 @@ function AboutPage() {
               <Download size={16} /> Download CV
             </a>
             <Link
+              to="/press-kit"
+              className="inline-flex items-center gap-2 rounded-sm border border-foreground/30 px-5 py-3 text-xs uppercase tracking-[0.25em] text-foreground hover:border-[color:var(--color-ember)] hover:text-[color:var(--color-ember)] transition"
+            >
+              Press kit <ArrowRight size={14} />
+            </Link>
+            <Link
               to="/connect"
               className="inline-flex items-center gap-2 rounded-sm border border-foreground/30 px-5 py-3 text-xs uppercase tracking-[0.25em] text-foreground hover:border-[color:var(--color-ember)] hover:text-[color:var(--color-ember)] transition"
             >
