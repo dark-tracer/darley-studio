@@ -30,7 +30,7 @@ export const musicVideos: VideoItem[] = [
     title: "Away — Lyric Video",
     date: "Jul 2024",
     description: "The full Twi and Ewe lyrics, written in light.",
-    youtubeId: "5qap5aO4i9A",
+    youtubeId: "Oj2Nqpdl1WM",
     category: "lyric",
   },
   {
