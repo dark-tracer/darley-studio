@@ -33,7 +33,7 @@ export function Footer() {
       <div className="border-t border-border/40">
         <div className="container-prose py-6 text-xs text-muted-foreground flex flex-col md:flex-row md:justify-between gap-2">
           <p>© {new Date().getFullYear()} Darley · Isabella Narh. All rights reserved.</p>
-          <p className="tracking-[0.2em] uppercase">Made with light & shadow</p>
+          <p className="tracking-[0.2em] uppercase">​</p>
         </div>
       </div>
     </footer>
