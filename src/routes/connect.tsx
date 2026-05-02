@@ -114,13 +114,19 @@ function ConnectPage() {
           </Field>
           <button
             type="submit"
-            className="w-full rounded-sm bg-[color:var(--color-ember)] px-6 py-4 text-xs uppercase tracking-[0.25em] text-[color:var(--color-ember-foreground)] hover:opacity-90 transition ember-glow"
+            disabled={status === "sending"}
+            className="w-full rounded-sm bg-[color:var(--color-ember)] px-6 py-4 text-xs uppercase tracking-[0.25em] text-[color:var(--color-ember-foreground)] hover:opacity-90 transition ember-glow disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Send message
+            {status === "sending" ? "Sending…" : "Send message"}
           </button>
-          {sent && (
+          {status === "sent" && (
             <p className="text-sm text-[color:var(--color-ember)]">
-              Your email client should be opening. If not, write to darleynarh@gmail.com directly.
+              Thank you — your message has been sent. Darley will be in touch shortly.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-sm text-destructive">
+              {errorMessage || "Could not send your message. Please try again, or email darleynarh@gmail.com directly."}
             </p>
           )}
         </form>
