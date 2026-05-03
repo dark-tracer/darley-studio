@@ -29,7 +29,7 @@ function ConnectPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string>("");
 
-  async function onSubmit(e: React.FormEvent) {
+  function onSubmit(e: React.FormEvent) {
     e.preventDefault();
     const result = schema.safeParse(form);
     if (!result.success) {
@@ -42,24 +42,12 @@ function ConnectPage() {
       return;
     }
     setErrors({});
-    setStatus("sending");
     setErrorMessage("");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(result.data),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.error || "Failed to send message");
-      }
-      setStatus("sent");
-      setForm({ name: "", email: "", subject: "Booking", message: "" });
-    } catch (err) {
-      setStatus("error");
-      setErrorMessage(err instanceof Error ? err.message : "Something went wrong");
-    }
+    const { name, email, subject, message } = result.data;
+    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+    const mailto = `mailto:darleynarh@gmail.com?subject=${encodeURIComponent(`[${subject}] ${name}`)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    setStatus("sent");
   }
 
   return (
@@ -114,14 +102,13 @@ function ConnectPage() {
           </Field>
           <button
             type="submit"
-            disabled={status === "sending"}
-            className="w-full rounded-sm bg-[color:var(--color-ember)] px-6 py-4 text-xs uppercase tracking-[0.25em] text-[color:var(--color-ember-foreground)] hover:opacity-90 transition ember-glow disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full rounded-sm bg-[color:var(--color-ember)] px-6 py-4 text-xs uppercase tracking-[0.25em] text-[color:var(--color-ember-foreground)] hover:opacity-90 transition ember-glow"
           >
-            {status === "sending" ? "Sending…" : "Send message"}
+            Open in email app
           </button>
           {status === "sent" && (
             <p className="text-sm text-[color:var(--color-ember)]">
-              Thank you — your message has been sent. Darley will be in touch shortly.
+              Your email app should open with the message ready to send. If nothing happens, email darleynarh@gmail.com directly.
             </p>
           )}
           {status === "error" && (
