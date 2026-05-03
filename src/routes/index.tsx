@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Play, ArrowRight, Headphones } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
-import heroSmoke from "@/assets/hero-smoke.mp4.asset.json";
 import { releases } from "@/data/music";
 
 export const Route = createFileRoute("/")({
