@@ -129,16 +129,12 @@ function FeaturedTrack({ release, side }: { release: typeof releases[number]; si
             {release.story}
           </p>
 
-          {release.embed && (
-            <div className="mt-8 overflow-hidden rounded-md border border-border/60">
-              <iframe
-                title={`${release.title} player`}
-                src={release.embed.src}
-                width="100%"
-                height="152"
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                className="block"
+          {release.previewUrl && (
+            <div className="mt-8">
+              <PreviewPlayer
+                src={release.previewUrl}
+                title={release.title}
+                fullTrackUrl={release.links.spotify}
               />
             </div>
           )}
