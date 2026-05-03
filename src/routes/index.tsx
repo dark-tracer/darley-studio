@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Play, ArrowRight, Headphones } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import { releases } from "@/data/music";
+import { PreviewPlayer } from "@/components/PreviewPlayer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
