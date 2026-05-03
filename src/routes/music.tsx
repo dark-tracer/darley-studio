@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { releases, type Release } from "@/data/music";
+import { PreviewPlayer } from "@/components/PreviewPlayer";
 
 export const Route = createFileRoute("/music")({
   head: () => ({
