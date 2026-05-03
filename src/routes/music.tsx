@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { releases, type Release } from "@/data/music";
+import { PreviewPlayer } from "@/components/PreviewPlayer";
 
 export const Route = createFileRoute("/music")({
   head: () => ({
@@ -89,16 +90,12 @@ function ReleaseRow({ release }: { release: Release }) {
               )}
             </div>
           </div>
-          {release.embed && (
-            <div className="overflow-hidden rounded-md border border-border/60 self-start">
-              <iframe
-                title={`${release.title} player`}
-                src={release.embed.src}
-                width="100%"
-                height={release.embed.type === "spotify" ? 352 : 200}
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                loading="lazy"
-                className="block"
+          {release.previewUrl && (
+            <div className="self-start">
+              <PreviewPlayer
+                src={release.previewUrl}
+                title={release.title}
+                fullTrackUrl={release.links.spotify}
               />
             </div>
           )}

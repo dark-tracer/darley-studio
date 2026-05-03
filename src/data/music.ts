@@ -19,6 +19,7 @@ export type Release = {
     boomplay?: string;
   };
   embed?: { type: "spotify" | "youtube"; src: string };
+  previewUrl?: string; // 30s preview mp3
   featured?: boolean;
 };
 
@@ -40,6 +41,7 @@ export const releases: Release[] = [
       youtube: "https://youtu.be/b-vSiwmfaoY?si=nEat6plJ253KoIZI",
     },
     embed: { type: "spotify", src: "https://open.spotify.com/embed/track/1KYoio6k80W5pfcnlXdAOz?utm_source=generator&theme=0" },
+    previewUrl: "https://p.scdn.co/mp3-preview/e61a7e69f6f75ccca23a8f0c89b91de3c2ed6f21",
     featured: true,
   },
   {
@@ -58,6 +60,7 @@ export const releases: Release[] = [
       audiomack: "https://audiomack.com/darleymusik/song/away?share-user-id=22535805",
     },
     embed: { type: "spotify", src: "https://open.spotify.com/embed/track/5fY7TJ9eW00QPR0L0lIjyq?utm_source=generator&theme=0" },
+    previewUrl: "https://p.scdn.co/mp3-preview/c492228dd5078be4f69cc0dc1cd08594c434ea51",
     featured: true,
   },
   {
@@ -76,5 +79,6 @@ export const releases: Release[] = [
       youtube: "https://youtu.be/okelPyuuSVE?si=cthLaVTW9noRD2G3",
     },
     embed: { type: "spotify", src: "https://open.spotify.com/embed/track/4REcZZJz0LOmbqGJ901rp9?utm_source=generator&theme=0" },
+    previewUrl: "https://p.scdn.co/mp3-preview/8a30323e0540cb7c2b617d3154ee638b1cc9d427",
   },
 ];
