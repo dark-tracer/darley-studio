@@ -41,6 +41,7 @@ export const releases: Release[] = [
       youtube: "https://youtu.be/b-vSiwmfaoY?si=nEat6plJ253KoIZI",
     },
     embed: { type: "spotify", src: "https://open.spotify.com/embed/track/1KYoio6k80W5pfcnlXdAOz?utm_source=generator&theme=0" },
+    previewUrl: "https://p.scdn.co/mp3-preview/e61a7e69f6f75ccca23a8f0c89b91de3c2ed6f21",
     featured: true,
   },
   {
