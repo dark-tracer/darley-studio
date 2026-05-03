@@ -40,7 +40,8 @@ function Home() {
           playsInline
           poster={heroImg}
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover mix-blend-screen opacity-70 animate-fade-up"
+          style={{ filter: "sepia(1) saturate(3) hue-rotate(-15deg)" }}
+          className="absolute inset-0 h-full w-full object-cover mix-blend-screen opacity-10 animate-fade-up"
         />
         <div className="absolute inset-0 hero-overlay" />
         {/* Smoke / ember layers */}
