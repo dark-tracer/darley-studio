@@ -60,6 +60,7 @@ export const releases: Release[] = [
       audiomack: "https://audiomack.com/darleymusik/song/away?share-user-id=22535805",
     },
     embed: { type: "spotify", src: "https://open.spotify.com/embed/track/5fY7TJ9eW00QPR0L0lIjyq?utm_source=generator&theme=0" },
+    previewUrl: "https://p.scdn.co/mp3-preview/c492228dd5078be4f69cc0dc1cd08594c434ea51",
     featured: true,
   },
   {
