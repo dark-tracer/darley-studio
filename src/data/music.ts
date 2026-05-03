@@ -79,5 +79,6 @@ export const releases: Release[] = [
       youtube: "https://youtu.be/okelPyuuSVE?si=cthLaVTW9noRD2G3",
     },
     embed: { type: "spotify", src: "https://open.spotify.com/embed/track/4REcZZJz0LOmbqGJ901rp9?utm_source=generator&theme=0" },
+    previewUrl: "https://p.scdn.co/mp3-preview/8a30323e0540cb7c2b617d3154ee638b1cc9d427",
   },
 ];
