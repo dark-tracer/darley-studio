@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Play, ArrowRight, Headphones } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
+import heroSmoke from "@/assets/hero-smoke.mp4.asset.json";
 import { releases } from "@/data/music";
 
 export const Route = createFileRoute("/")({
@@ -30,6 +31,16 @@ function Home() {
           width={1920}
           height={1280}
           className="absolute inset-0 h-full w-full object-cover"
+        />
+        <video
+          src={heroSmoke.url}
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={heroImg}
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover mix-blend-screen opacity-70 animate-fade-up"
         />
         <div className="absolute inset-0 hero-overlay" />
         {/* Smoke / ember layers */}
