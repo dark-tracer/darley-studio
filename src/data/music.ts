@@ -18,6 +18,7 @@ export type Release = {
     audiomack?: string;
     boomplay?: string;
   };
+  embed?: { type: "spotify" | "youtube"; src: string };
   previewUrl?: string; // 30s preview mp3
   featured?: boolean;
 };
