@@ -146,6 +146,16 @@ function ConnectPage() {
               I read every message myself. I usually reply within a few days. For time-sensitive press, please mark your subject clearly.
             </p>
           </div>
+
+          <div className="rounded-md border border-border/60 bg-card/40 p-6">
+            <p className="eyebrow">Keep in Touch</p>
+            <p className="mt-4 text-sm text-foreground/80 leading-relaxed">
+              Download Darley's digital card and save her details directly to your phone or contacts.
+            </p>
+            <div className="mt-5">
+              <SaveCardButton />
+            </div>
+          </div>
         </aside>
       </section>
     </>
