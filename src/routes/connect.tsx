@@ -3,6 +3,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { Mail, Instagram, Youtube, Music2 } from "lucide-react";
 import { PageHeader } from "./music";
+import { SaveCardButton } from "@/components/SaveCardButton";
 
 export const Route = createFileRoute("/connect")({
   head: () => ({
