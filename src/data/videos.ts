@@ -12,7 +12,9 @@ export type EduVideo = {
   title: string;
   date: string;
   description: string;
-  youtubeId: string;
+  youtubeId?: string;
+  src?: string;
+  poster?: string;
   label: "Student Showcase" | "Competition" | "Class Session" | "Rehearsal";
 };
 
@@ -57,7 +59,7 @@ export const eduVideos: EduVideo[] = [
     title: "Ghana Inter-School Festival — 1st Place",
     date: "2024",
     description: "My students winning gold for the second year in a row. I am still proud, still loud about it.",
-    youtubeId: "kJQP7kiw5Fk",
+    src: "/videos/edu-1.mp4",
     label: "Competition",
   },
   {
@@ -65,7 +67,7 @@ export const eduVideos: EduVideo[] = [
     title: "Ghana Inter-School Festival — 1st Place",
     date: "2023",
     description: "The first win. The year they trusted the work and walked on stage like they belonged there.",
-    youtubeId: "RgKAFK5djSk",
+    src: "/videos/edu-2.mov",
     label: "Competition",
   },
   {

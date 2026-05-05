@@ -17,7 +17,7 @@ export const Route = createFileRoute("/videos")({
 });
 
 function VideosPage() {
-  const [active, setActive] = useState<{ id: string; title: string } | null>(null);
+  const [active, setActive] = useState<{ id?: string; src?: string; title: string } | null>(null);
 
   return (
     <>
@@ -55,12 +55,20 @@ function VideosPage() {
         </p>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {eduVideos.map((v) => (
-            <EduCard key={v.id} v={v} onPlay={() => setActive({ id: v.youtubeId, title: v.title })} />
+            <EduCard
+              key={v.id}
+              v={v}
+              onPlay={() =>
+                setActive(
+                  v.src ? { src: v.src, title: v.title } : { id: v.youtubeId, title: v.title },
+                )
+              }
+            />
           ))}
         </div>
       </section>
 
-      {active && <Lightbox id={active.id} title={active.title} onClose={() => setActive(null)} />}
+      {active && <Lightbox active={active} onClose={() => setActive(null)} />}
     </>
   );
 }
@@ -104,12 +112,22 @@ function EduCard({ v, onPlay }: { v: EduVideo; onPlay: () => void }) {
       className="group text-left rounded-md overflow-hidden border border-border/60 bg-card/40 hover:border-[color:var(--color-ember)]/60 transition"
     >
       <div className="relative aspect-video overflow-hidden bg-ash">
-        <img
-          src={`https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`}
-          alt={v.title}
-          loading="lazy"
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
-        />
+        {v.src ? (
+          <video
+            src={v.src}
+            preload="metadata"
+            muted
+            playsInline
+            className="h-full w-full object-cover opacity-90 group-hover:opacity-100 transition"
+          />
+        ) : (
+          <img
+            src={`https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`}
+            alt={v.title}
+            loading="lazy"
+            className="h-full w-full object-cover transition duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
         <div className="absolute inset-0 grid place-items-center">
           <div className="grid h-14 w-14 place-items-center rounded-full bg-[color:var(--color-ember)]/95 text-[color:var(--color-ember-foreground)] shadow-[var(--shadow-glow)] transition group-hover:scale-110">
@@ -133,7 +151,13 @@ function labelFor(c: VideoItem["category"]) {
   return c === "music-video" ? "Music Video" : c === "lyric" ? "Lyric Video" : c === "live" ? "Live" : "Behind the Scenes";
 }
 
-function Lightbox({ id, title, onClose }: { id: string; title: string; onClose: () => void }) {
+function Lightbox({
+  active,
+  onClose,
+}: {
+  active: { id?: string; src?: string; title: string };
+  onClose: () => void;
+}) {
   return (
     <div
       className="fixed inset-0 z-[60] grid place-items-center bg-ink/90 backdrop-blur-md p-4 animate-fade-in"
@@ -147,13 +171,23 @@ function Lightbox({ id, title, onClose }: { id: string; title: string; onClose: 
         <X size={28} />
       </button>
       <div className="w-full max-w-5xl aspect-video" onClick={(e) => e.stopPropagation()}>
-        <iframe
-          title={title}
-          src={`https://www.youtube.com/embed/${id}?autoplay=1&rel=0`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          className="h-full w-full rounded-md border border-border/60"
-        />
+        {active.src ? (
+          <video
+            src={active.src}
+            controls
+            autoPlay
+            playsInline
+            className="h-full w-full rounded-md border border-border/60 bg-black"
+          />
+        ) : (
+          <iframe
+            title={active.title}
+            src={`https://www.youtube.com/embed/${active.id}?autoplay=1&rel=0`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="h-full w-full rounded-md border border-border/60"
+          />
+        )}
       </div>
     </div>
   );
