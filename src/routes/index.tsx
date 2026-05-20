@@ -8,12 +8,13 @@ import { PreviewPlayer } from "@/components/PreviewPlayer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Darley — Music for the moments you cannot put into words." },
-      { name: "description", content: "Official site of Darley (Isabella Narh) — Ghanaian singer, songwriter and educator. Listen to Rescue Me and Away." },
-      { property: "og:title", content: "Darley — Ghanaian Singer & Songwriter" },
-      { property: "og:description", content: "Cinematic, emotionally honest music rooted in Ghanaian culture." },
+      { title: "Darley — Ghanaian Singer & Songwriter | Afrobeats & Alté Soul" },
+      { name: "description", content: "Official site of Darley (Isabella Narh) — Ghanaian singer, songwriter and educator blending Afrobeats, hiplife and alté soul in English, Twi and Ewe." },
+      { property: "og:title", content: "Darley — Ghanaian Singer & Songwriter | Afrobeats & Alté Soul" },
+      { property: "og:description", content: "Cinematic, emotionally honest music from a Ghanaian artist rooted in Afrobeats, hiplife and alté soul." },
     ],
   }),
+
   component: Home,
 });
 
@@ -38,7 +39,7 @@ function Home() {
         <div className="pointer-events-none absolute bottom-10 right-10 h-32 w-32 rounded-full bg-[color:var(--color-ember)]/20 blur-3xl animate-ember-pulse" />
 
         <div className="relative z-10 container-prose flex h-full flex-col justify-end pb-24 md:pb-32">
-          <p className="eyebrow animate-fade-up" style={{ animationDelay: "0.1s" }}>Singer · Songwriter · Educator</p>
+          <p className="eyebrow animate-fade-up" style={{ animationDelay: "0.1s" }}>Ghanaian Singer · Songwriter · Educator</p>
           <h1
             className="mt-6 font-display text-[clamp(4rem,14vw,11rem)] leading-[0.9] tracking-tight text-balance animate-fade-up"
             style={{ animationDelay: "0.25s" }}
@@ -77,15 +78,16 @@ function Home() {
           <p className="eyebrow">A short introduction</p>
           <div className="mt-8 space-y-6 font-display text-2xl md:text-3xl leading-snug text-balance text-foreground/90">
             <p>
-              I'm Darley. I write the songs I needed to hear when I had no words of my own.
+              I'm Darley — a Ghanaian singer and songwriter writing the songs I needed to hear when I had no words of my own.
             </p>
             <p className="text-foreground/75">
-              My music moves between English, Twi and Ewe — between soul, alté and the rhythms I grew up inside of. It is honest before it is anything else.
+              My music moves between English, Twi and Ewe — between alté soul, Afrobeats and the hiplife rhythms I grew up inside of. It is honest before it is anything else.
             </p>
             <p className="text-foreground/75">
               I am a Ghanaian storyteller. I teach. I perform. I write because I can't not. If something here moves you, stay a while.
             </p>
           </div>
+
         </div>
       </section>
 
