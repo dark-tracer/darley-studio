@@ -7,12 +7,13 @@ import { PreviewPlayer } from "@/components/PreviewPlayer";
 export const Route = createFileRoute("/music")({
   head: () => ({
     meta: [
-      { title: "Music — Darley" },
-      { name: "description", content: "All singles and releases by Darley. Stream on Spotify, Apple Music, YouTube and more." },
-      { property: "og:title", content: "Music — Darley" },
-      { property: "og:description", content: "Stream Darley's discography across all platforms." },
+      { title: "Music by Darley — Ghanaian Singer | Afrobeats, Hiplife & Alté Soul" },
+      { name: "description", content: "Stream every release from Darley, a Ghanaian singer and songwriter weaving Afrobeats, hiplife and alté soul in English, Twi and Ewe — on Spotify, Apple Music and YouTube." },
+      { property: "og:title", content: "Music by Darley — Ghanaian Singer | Afrobeats & Hiplife" },
+      { property: "og:description", content: "The full discography of Ghanaian artist Darley — Afrobeats, hiplife and alté soul across all streaming platforms." },
     ],
   }),
+
   component: MusicPage,
 });
 
@@ -23,8 +24,9 @@ function MusicPage() {
       <PageHeader
         eyebrow="Discography"
         title="Music"
-        subtitle="Every song I have released, in order. Each one was true the day I made it."
+        subtitle="Every song from Ghanaian singer Darley — a discography moving through Afrobeats, hiplife and alté soul. Each one was true the day I made it."
       />
+
       <section className="container-prose pb-24">
         <div className="space-y-6">
           {sorted.map((r) => (
